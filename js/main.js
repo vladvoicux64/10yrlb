@@ -1,5 +1,5 @@
 let i = 0;
-let bar = '░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░';
+let bar = '░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░';
 const txt = 'This is a 10 year loading bar.';
 const txt2 = 'It was started on 17 september 2022.';
 const txt3 = 'It is indeed useless, but I wonder where I will be when it finishes loading.';
@@ -30,7 +30,7 @@ async function load() {
   await typeWriter("console", txt3);
   document.getElementById('barwrapper').style.visibility = 'visible';
   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
-    await typeWriter("bar", bar.substring(0,10));
+    await typeWriter("bar", bar.substring(0,20));
   else await typeWriter("bar", bar);
   spinner();
   document.getElementById('facts').style.visibility = "visible";
@@ -46,17 +46,22 @@ async function updatebar() {
   let proc = Math.floor((start - Date.now())  / year * 10);
   bar ='';
   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-    steps = Math.floor(proc/10)
+    steps = proc/5
     for (let i = 10 - steps; i > 0; i--)
-      bar += '▓';
-    for (let i = steps; i > 0; i--)
+      if (i >= 0.5)
+        bar += '▓';
+      else bar+= '▒';;
+    for (let i = steps; i >= 1; i--)
       bar += '░';
   }
   else {
-    steps = proc;
-    for (let i = 100 - steps; i > 0; i--)
-      bar += '▓';
-    for (let i = steps; i > 0; i--)
+    steps = proc/2;
+    for (let i = 25 - steps; i > 0; i--) {
+      if (i >= 0.5)
+        bar += '▓';
+      else bar+= '▒';
+    }
+    for (let i = steps; i >= 1; i--)
       bar += '░';
   }
   document.getElementById('bar').innerText = bar;
@@ -67,10 +72,10 @@ async function updatefacts() {
   let hours = Math.round((start - Date.now())  / hour);
   let minutes = Math.round((start - Date.now())  / minute);
   let years = Math.round((start - Date.now())  / year);
-  document.getElementById('yrs').innerText = Math.floor(years);
-  document.getElementById('days').innerText = Math.floor(days);
-  document.getElementById('hrs').innerText = Math.floor(hours);
-  document.getElementById('mins').innerText = Math.floor(minutes);
+  document.getElementById('yrs').innerText =years;
+  document.getElementById('days').innerText = days;
+  document.getElementById('hrs').innerText = hours;
+  document.getElementById('mins').innerText = minutes;
 }
 
 async function spinner() {
