@@ -29,7 +29,9 @@ async function load() {
   document.getElementById("console").innerHTML += `<br>`;
   await typeWriter("console", txt3);
   document.getElementById('barwrapper').style.visibility = 'visible';
-  await typeWriter("bar", bar);
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
+    await typeWriter("bar", bar.substring(0,10));
+  else await typeWriter("bar", bar);
   spinner();
   document.getElementById('facts').style.visibility = "visible";
   while(true)
@@ -42,12 +44,21 @@ async function load() {
 
 async function updatebar() {
   let steps = Math.round((start - Date.now())  / year * 10);
-  let bar ='';
-  for(let i=100-steps; i>0; i--)
-    bar+='▓';
-  for(let i=steps; i>0; i--)
-    bar+='░';
-  document.getElementById('bar=').innerText = bar;
+  bar ='';
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    steps = Math.round((start - Date.now())  / year)
+    for (let i = 10 - steps; i > 0; i--)
+      bar += '▓';
+    for (let i = steps; i > 0; i--)
+      bar += '░';
+  }
+  else {
+    for (let i = 100 - steps; i > 0; i--)
+      bar += '▓';
+    for (let i = steps; i > 0; i--)
+      bar += '░';
+    document.getElementById('bar=').innerText = bar;
+  }
 }
 
 async function updatefacts() {
