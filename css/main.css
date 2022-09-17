@@ -18,6 +18,16 @@ html {
   font-family: "Courier New", "Consolas", "Lucida Console";
 }
 
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer{
+  margin-top: auto;
+}
+
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -265,8 +275,9 @@ textarea {
 .center {
   text-align: center;
   font-size: 2em;
-  padding: 50px 0;
+  margin: auto;
 }
 .center.footer {
   font-size: 1em;
 }
+
