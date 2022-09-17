@@ -30,7 +30,7 @@ async function load() {
   await typeWriter("console", txt3);
   document.getElementById('barwrapper').style.visibility = 'visible';
   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))
-    await typeWriter("bar", bar.substring(0,20));
+    await typeWriter("bar", bar.substring(0,10));
   else await typeWriter("bar", bar);
   spinner();
   document.getElementById('facts').style.visibility = "visible";
@@ -46,11 +46,12 @@ async function updatebar() {
   let proc = Math.floor((start - Date.now())  / year * 10);
   bar ='';
   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-    steps = proc/5
-    for (let i = 10 - steps; i > 0; i--)
+    steps = proc/10
+    for (let i = 10 - steps; i > 0; i--) {
       if (i >= 0.5)
         bar += '▓';
-      else bar+= '▒';
+      else bar += '▒';
+    }
     for (let i = steps; i >= 1; i--)
       bar += '░';
   }
