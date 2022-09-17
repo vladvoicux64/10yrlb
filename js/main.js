@@ -43,22 +43,23 @@ async function load() {
 }
 
 async function updatebar() {
-  let steps = Math.round((start - Date.now())  / year * 10);
+  let proc = Math.floor((start - Date.now())  / year * 10);
   bar ='';
   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-    steps = Math.round((start - Date.now())  / year)
+    steps = Math.floor(proc/10)
     for (let i = 10 - steps; i > 0; i--)
       bar += '▓';
     for (let i = steps; i > 0; i--)
       bar += '░';
   }
   else {
+    steps = proc;
     for (let i = 100 - steps; i > 0; i--)
       bar += '▓';
     for (let i = steps; i > 0; i--)
       bar += '░';
-    document.getElementById('bar=').innerText = bar;
   }
+  document.getElementById('bar').innerText = bar;
 }
 
 async function updatefacts() {
