@@ -57,7 +57,7 @@ async function updatebar() {
   }
   else {
     steps = proc/2;
-    for (let i = 25 - steps; i > 0; i--) {
+    for (let i = 50 - steps; i > 0; i--) {
       if (i >= 0.5)
         bar += '▓';
       else bar+= '▒';
