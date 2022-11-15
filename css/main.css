@@ -279,6 +279,32 @@ textarea {
   font-size: 2em;
   margin: auto;
 }
+
+.navbar {
+  margin: 30px auto;
+  justify-content: space-around;
+  overflow: hidden;
+  background-color: #333333;
+  border-radius: 15px;
+}
+.navbar a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color:black;
+  background-color: #a0a0a0;
+}
+
+.navbar a.active {
+  color: black;
+  background-color: #f2f2f2;
+}
 .center.footer {
   font-size: 1em;
 }
