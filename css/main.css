@@ -15,7 +15,7 @@ html {
   color: #ffffff;
   line-height: 1.4;
   background-color: #222222;
-  font-family: "Courier New", "Consolas", "Lucida Console";
+  font-family: "Courier New", "Monaco", "Lucida Console";
 }
 
 body{
@@ -279,6 +279,10 @@ textarea {
   font-size: 2em;
   margin: auto;
 }
+.center.footer {
+  font-size: 0.5em;
+  margin-top: auto;
+}
 
 .navbar {
   margin: 30px auto;
@@ -305,7 +309,5 @@ textarea {
   color: black;
   background-color: #f2f2f2;
 }
-.center.footer {
-  font-size: 1em;
-}
+
 
