@@ -290,13 +290,13 @@ textarea {
   justify-content: space-around;
   overflow: hidden;
   background-color: #333333;
-  border-radius: 15px;
+  border-radius: 12px;
 }
 .navbar a {
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 14px 16px;
+  padding: 8px 12px;
   font-size: 17px;
   text-decoration: none;
 }
