@@ -372,3 +372,27 @@ input#expand:checked ~ .navbar {
   margin-right: 60px;
 }
 
+@media screen and (max-width: 40em) {
+  .centered {
+    margin-right: 30px;
+    margin-left: 30px;
+  }
+
+  .navbar_links {
+    flex-flow: column wrap;
+    max-height: 0;
+    transition: max-width 0.5s, max-height 0.5s, background-color 3s;
+  }
+
+  input#expand:checked ~ .navbar_links {
+    max-height: 100%;
+  }
+
+  .navbar label {
+    background-color: transparent;
+  }
+
+  .navbar {
+    border-radius: 0;
+  }
+}
